@@ -8,24 +8,25 @@ import { Input } from './ui/input';
 export const TaskCard = ( { task, index } ) => {
     let isEditing = false;
   return (
-	<Card className={cn("p-4 border-0 bg-gradient-card shadow-custom-md hover:shadow-custom-lg transition-all duration-200 animate-fadeIn group", 
-        task.status === 'completed' ? 'opacity-70' : 'opacity-100'
+    <Card className={cn("p-4 border-0 bg-gradient-card shadow-custom-md hover:shadow-custom-lg transition-all duration-200 animate-fadeIn group", 
+        task.status === 'completed' && 'opacity-75' 
     )}
     style={{ animationDelay: `${index * 50}ms` }}
     >
-    <div className="flex items-start justify-between gap-4">
+    <div className="flex items-center gap-4">
         {/* Nút tròn*/}
         <Button 
         variant="ghost"
         size="icon"
         className={cn("flex-shrink-0 size-8 rounded-full transition-all duration-200",
          task.status === 'completed' ? 'text-success hover:text-success/80'
-          : 'text-muted-foreground hover:text-primary')}>
+          : 'text-muted-foreground hover:text-primary')}
+        >
         {
             task.status === 'completed' ? (
-                <CheckCircle2 className="size-4" />
+                <CheckCircle2 className="size-5"/>
             ):(
-                <Circle className="size-4" />
+                <Circle className="size-5"/>
             )
         }
         </Button>
@@ -65,7 +66,7 @@ export const TaskCard = ( { task, index } ) => {
             {/* Nút chỉnh sửa */}
             <Button variant="ghost" 
             size="icon" 
-            className='flex-shrink-0 text-muted-foreground hover:text-info transition-colors'>
+            className='flex-shrink-0 transition-colors text-muted-foreground hover:text-info '>
                 <SquarePen className="size-4" />
 
             </Button>
